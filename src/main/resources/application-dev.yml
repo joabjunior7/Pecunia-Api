@@ -1,0 +1,37 @@
+# =============================================================
+# FinTrack API - Perfil DEV (Desenvolvimento Local)
+# =============================================================
+# Usa banco H2 em memoria - nao precisa instalar nada!
+# Console do H2 acessivel em: http://localhost:8080/h2-console
+# =============================================================
+
+spring:
+  # H2 - banco de dados em memoria para desenvolvimento
+  datasource:
+    url: jdbc:h2:mem:fintrackdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+  # JPA - em dev, deixa o Hibernate criar as tabelas automaticamente
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  # Console do H2 - interface web para ver o banco
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+  # Flyway desabilitado em dev (Hibernate gerencia o schema)
+  flyway:
+    enabled: false
+
+# Log mais detalhado em dev
+logging:
+  level:
+    com.fintrack: DEBUG
+    org.springframework.web: DEBUG

@@ -1,0 +1,43 @@
+# =============================================================
+# FinTrack API - Configuracao Principal
+# =============================================================
+# Este arquivo contem as configuracoes COMUNS a todos os ambientes.
+# Configuracoes especificas ficam em application-dev.yml e application-prod.yml
+# =============================================================
+
+spring:
+  application:
+    name: fintrack-api
+
+  # Perfil ativo: 'dev' para desenvolvimento local, 'prod' para producao na VPS
+  profiles:
+    active: dev
+
+  # JPA/Hibernate - configuracoes comuns
+  jpa:
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+
+  # Flyway - gerenciamento de migrations do banco de dados
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+# Actuator - endpoints de monitoramento
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: when-authorized
+
+# Informacoes da API
+info:
+  app:
+    name: FinTrack API
+    description: API REST de controle de financas pessoais
+    version: 0.0.1-SNAPSHOT

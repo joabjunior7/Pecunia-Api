@@ -1,0 +1,36 @@
+# =============================================================
+# FinTrack API - Perfil PROD (Producao na VPS Contabo)
+# =============================================================
+# Usa PostgreSQL e Redis rodando no Coolify
+# As credenciais sao injetadas via variaveis de ambiente
+# =============================================================
+
+spring:
+  # PostgreSQL na VPS
+  datasource:
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+
+  # JPA - em prod, Flyway gerencia o schema (nunca usar ddl-auto: create!)
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+
+  # H2 console desabilitado em producao
+  h2:
+    console:
+      enabled: false
+
+  # Flyway - migrations para PostgreSQL
+  flyway:
+    locations: classpath:db/migration/common,classpath:db/migration/postgresql
+
+# Log menos verboso em producao
+logging:
+  level:
+    com.fintrack: INFO
+    org.springframework.web: WARN
