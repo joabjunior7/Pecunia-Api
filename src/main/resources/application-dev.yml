@@ -13,12 +13,18 @@ spring:
     username: sa
     password:
 
-  # JPA - em dev, deixa o Hibernate criar as tabelas automaticamente
+  # JPA - em dev, Hibernate recria as tabelas a cada restart
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
     show-sql: true
+    defer-datasource-initialization: true
+
+  # Carrega o data.sql depois que o Hibernate criar as tabelas
+  sql:
+    init:
+      mode: always
 
   # Console do H2 - interface web para ver o banco
   h2:
