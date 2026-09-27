@@ -11,7 +11,9 @@ import org.springframework.stereotype.Repository;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
+import com.fintrack.dto.projection.CategoryTotalProjection;
 
 /**
  * Repository para operações de banco de dados da entidade Transaction.
@@ -69,4 +71,24 @@ public interface TransactionRepository extends JpaRepository<Transaction, Long> 
     BigDecimal sumByTypeAndDateBetween(@Param("type") TransactionType type,
                                        @Param("startDate") LocalDate startDate,
                                        @Param("endDate") LocalDate endDate);
+
+    /**
+     * Conta o número total de transações em determinado período.
+     */
+    long countByDateBetween(LocalDate startDate, LocalDate endDate);
+
+    /**
+     * Agrupa e soma despesas ou receitas por categoria em um período específico,
+     * retornando a projeção leve CategoryTotalProjection para os gráficos do dashboard.
+     */
+    @Query("SELECT t.category.id AS categoryId, t.category.name AS categoryName, " +
+           "SUM(t.amount) AS totalAmount, COUNT(t) AS transactionCount " +
+           "FROM Transaction t " +
+           "WHERE t.type = :type AND t.date BETWEEN :startDate AND :endDate " +
+           "GROUP BY t.category.id, t.category.name " +
+           "ORDER BY SUM(t.amount) DESC")
+    List<CategoryTotalProjection> findCategoryTotalsByTypeAndDateBetween(
+            @Param("type") TransactionType type,
+            @Param("startDate") LocalDate startDate,
+            @Param("endDate") LocalDate endDate);
 }
