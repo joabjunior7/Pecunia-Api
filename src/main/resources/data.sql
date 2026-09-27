@@ -15,3 +15,12 @@ INSERT INTO categories (name, description, is_default, active, created_at) VALUE
     ('Freelance',     'Trabalhos avulsos e projetos extras',   TRUE, TRUE, CURRENT_TIMESTAMP),
     ('Investimentos', 'Rendimentos de investimentos',          TRUE, TRUE, CURRENT_TIMESTAMP),
     ('Outros',        'Transacoes sem categoria especifica',   TRUE, TRUE, CURRENT_TIMESTAMP);
+
+-- Contas iniciais de teste
+DELETE FROM accounts;
+
+INSERT INTO accounts (name, type, balance, description, active, created_at) VALUES
+    ('Nubank',          'BANK',        1500.00, 'Conta corrente principal', TRUE, CURRENT_TIMESTAMP),
+    ('Carteira Física', 'WALLET',       120.50, 'Dinheiro em espécie',       TRUE, CURRENT_TIMESTAMP),
+    ('Cartão Inter',    'CREDIT_CARD',    0.00, 'Cartão de crédito Inter',    TRUE, CURRENT_TIMESTAMP);
+
