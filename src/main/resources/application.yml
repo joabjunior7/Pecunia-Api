@@ -1,5 +1,5 @@
 # =============================================================
-# FinTrack API - Configuracao Principal
+# Pecunia API - Configuracao Principal
 # =============================================================
 # Este arquivo contem as configuracoes COMUNS a todos os ambientes.
 # Configuracoes especificas ficam em application-dev.yml e application-prod.yml
@@ -7,7 +7,7 @@
 
 spring:
   application:
-    name: fintrack-api
+    name: pecunia-api
 
   # Perfil ativo: 'dev' para desenvolvimento local, 'prod' para producao na VPS
   profiles:
@@ -39,6 +39,6 @@ management:
 # Informacoes da API
 info:
   app:
-    name: FinTrack API
+    name: Pecunia API
     description: API REST de controle de financas pessoais
     version: 0.0.1-SNAPSHOT

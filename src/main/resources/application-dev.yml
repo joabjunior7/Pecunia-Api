@@ -1,5 +1,5 @@
 # =============================================================
-# FinTrack API - Perfil DEV (Desenvolvimento Local)
+# Pecunia API - Perfil DEV (Desenvolvimento Local)
 # =============================================================
 # Usa banco H2 em memoria - nao precisa instalar nada!
 # Console do H2 acessivel em: http://localhost:8080/h2-console
@@ -8,7 +8,7 @@
 spring:
   # H2 - banco de dados em memoria para desenvolvimento
   datasource:
-    url: jdbc:h2:mem:fintrackdb
+    url: jdbc:h2:mem:pecuniadb
     driver-class-name: org.h2.Driver
     username: sa
     password:
@@ -39,5 +39,5 @@ spring:
 # Log mais detalhado em dev
 logging:
   level:
-    com.fintrack: DEBUG
+    com.pecunia: DEBUG
     org.springframework.web: DEBUG

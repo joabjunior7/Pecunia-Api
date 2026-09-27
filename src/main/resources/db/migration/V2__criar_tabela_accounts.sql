@@ -1,5 +1,5 @@
 -- ================================================================
--- FinTrack API - V2: Criação da tabela de contas (accounts)
+-- Pecunia API - V2: Criação da tabela de contas (accounts)
 -- ================================================================
 
 CREATE TABLE accounts (

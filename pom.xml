@@ -8,10 +8,10 @@
         <version>3.5.3</version>
         <relativePath/>
     </parent>
-    <groupId>com.fintrack</groupId>
-    <artifactId>fintrack-api</artifactId>
+    <groupId>com.pecunia</groupId>
+    <artifactId>pecunia-api</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>fintrack-api</name>
+    <name>pecunia-api</name>
     <description>API REST de controle de financas pessoais</description>
 
     <properties>

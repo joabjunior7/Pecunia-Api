@@ -1,5 +1,5 @@
 # =============================================================
-# FinTrack API - Perfil PROD (Producao na VPS Contabo)
+# Pecunia API - Perfil PROD (Producao na VPS Contabo)
 # =============================================================
 # Usa PostgreSQL e Redis rodando no Coolify
 # As credenciais sao injetadas via variaveis de ambiente
@@ -27,10 +27,10 @@ spring:
 
   # Flyway - migrations para PostgreSQL
   flyway:
-    locations: classpath:db/migration/common,classpath:db/migration/postgresql
+    locations: classpath:db/migration
 
 # Log menos verboso em producao
 logging:
   level:
-    com.fintrack: INFO
+    com.pecunia: INFO
     org.springframework.web: WARN

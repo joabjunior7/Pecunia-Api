@@ -1,5 +1,5 @@
 -- ================================================================
--- FinTrack API - V3: Criação da tabela de transações (transactions)
+-- Pecunia API - V3: Criação da tabela de transações (transactions)
 -- ================================================================
 
 CREATE TABLE transactions (

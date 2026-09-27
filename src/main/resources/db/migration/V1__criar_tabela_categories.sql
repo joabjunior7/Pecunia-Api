@@ -1,5 +1,5 @@
 -- ================================================================
--- FinTrack API - V1: Criacao da tabela de categorias
+-- Pecunia API - V1: Criacao da tabela de categorias
 -- ================================================================
 -- Flyway e uma ferramenta de migrations (versionamento do banco).
 -- Cada arquivo V{numero}__{descricao}.sql e executado uma vez
